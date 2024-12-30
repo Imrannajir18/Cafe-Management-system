@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="nav">
+        <h1>Welcome to EV Cafe!</h1>
+        <ul>
+            <li><a href="/add_menu">Home</a></li>
+            <li><a href="/orders">Orders</a></li>
+        </ul>
+        
+    </div>
+    <div class="content">
+        <h1>Order History</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/add_menu">Back to Home</a>
+    </div>
+    
+</body>
+</html>

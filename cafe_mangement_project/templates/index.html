@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="nav">
+        <h1>Welcome to EV Cafe!</h1>
+        <ul>
+            <li><a href="/add_menu">Home</a></li>
+            <li><a href="/orders">Orders</a></li>
+            <li><a href="/">Login</a></li>
+        </ul>
+    </div>
+    <div class="content">
+    <h1>Cafe Menu</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+        {% for item in menu %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add Menu Item</h2>
+    <hr>
+    <form action="/add_menu" method="POST">
+        <input type="text" name="item_name" placeholder="Item Name" required>
+        <input type="number" name="price" placeholder="Price" step="0.01" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Place Order</h2>
+    <form action="/place_order" method="POST">
+        <input type="text" name="item_name" placeholder="Item Name" required>
+        <input type="number" name="quantity" placeholder="Quantity" required>
+        <button type="submit">Order</button>
+    </form>
+
+    <a href="/orders">View Orders</a>
+    </div>
+    
+</body>
+</html>

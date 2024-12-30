@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV User login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1>Login</h1>
+            <div class="messages">
+                {% if messages %}
+                    <p><strong>{{ message }}</strong></p>
+                {% endif %}
+            </div>
+            <form action="/login" method="POST">
+                <label for="username">Username</label>&nbsp;
+                <input type="text" name="username" placeholder="Username" required>&nbsp;&nbsp;
+            
+               
+                <label for="password">Password</label>&nbsp;
+                <input type="password" name="password" placeholder="Password" required>&nbsp;&nbsp;
+                <button type="submit">Login</button>
+                
+            </form>
+            <p>Don't Have an Account?<a href="/register">Register</a></p> 
+        </div>
+    </div>
+</body>
+</html>
